@@ -36,3 +36,6 @@ lerna-debug.log*
 
 # Sqlite DB
 nested-db
+
+# Auto generated gql schema by Nest.js
+schema.gql
