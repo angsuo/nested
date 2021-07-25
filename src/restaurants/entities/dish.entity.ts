@@ -1,5 +1,6 @@
 import { Field, ObjectType } from "@nestjs/graphql";
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Keyword } from "./keyword.entity";
 
 @ObjectType()
 @Entity()
@@ -12,5 +13,7 @@ export class Dish {
     @Column()
     name: string;
 
-    
+    @ManyToMany(() => Keyword, keyword => keyword.dishes, {nullable: true})
+    @Field(() => [Keyword], {nullable: true})
+    keywords: Keyword[];
 }
