@@ -5,6 +5,9 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { RestaurantsModule } from './restaurants/restaurants.module';
+import { OpeningHoursModule } from './opening-hours/opening-hours.module';
+import { DishesModule } from './dishes/dishes.module';
+import { KeywordsModule } from './keywords/keywords.module';
 
 @Module({
   imports: [RestaurantsModule, GraphQLModule.forRoot({
@@ -15,7 +18,10 @@ import { RestaurantsModule } from './restaurants/restaurants.module';
     database:'nested-db',
     entities:['dist/**/*.entity{.ts,.js}'],
     synchronize:true
-  }),],
+  }),
+  OpeningHoursModule,
+  DishesModule,
+  KeywordsModule,],
   controllers: [AppController],
   providers: [AppService],
 })
