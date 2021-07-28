@@ -4,4 +4,7 @@ import { Field, InputType } from "@nestjs/graphql";
 export class CreateRestaurantInputs{
     @Field()
     name: string;
+
+    @Field({nullable:true})
+    description?: string;
 }
